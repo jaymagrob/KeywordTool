@@ -7,15 +7,14 @@ async function getStuff() {
   const comparisonsAfter = ['like', 'or', 'versus', 'vs', 'and']
   const priceBefore = ['cheapest', 'cheap', 'best']
   const topBefore = ['top 10', 'top 5', 'top 3', 'top']
+  const one = ['skateboard']
 
-  let results = []
-  for(const item of alpha) {
+  let results = {}
+  for(const item of one) {
     const r = await getGoogleData(item)
-    results.push({
-      [item]: r[0][0],
-    })
+    results[item] = r[0];
   }
   return results
 }
 
-getStuff().then(i => console.log('here', i))
+getStuff()
