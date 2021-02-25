@@ -12,8 +12,11 @@ async function getStuff() {
   const results = {};
   for (const item of one) {
     const r = await getGoogleData(item);
+    console.log(r);
     results[item] = r[0];
   }
+
+  console.log(results);
   return results;
 }
 
