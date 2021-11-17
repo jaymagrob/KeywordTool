@@ -1,6 +1,5 @@
 {
-  "extends": "airbnb",
-  "env": {
-    "jest/globals": true
-  }
+  "plugins": ["jest"],
+  "extends": [ "airbnb", "eslint:recommended", "plugin:jest/recommended" ]
 }
+
