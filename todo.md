@@ -1,6 +1,5 @@
 # To Do
 - Add a enum of all country cookies
-- Rebase users to remove vks-jrobertson
 - Fix the questions
 - Improve algorithum for looping
 - Display data better
