@@ -7,7 +7,6 @@ async function getStuff() {
   const comparisonsAfter = ['like', 'or', 'versus', 'vs', 'and'];
   const priceBefore = ['cheapest', 'cheap', 'best'];
   const topBefore = ['top 10', 'top 5', 'top 3', 'top'];
-  const one = ['skateboard']; // first testing
 
   const results = {};
   for (const item of one) {
