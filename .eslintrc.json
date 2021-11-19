@@ -1,5 +1,4 @@
 {
-  "plugins": ["jest"],
   "extends": [ "airbnb", "eslint:recommended", "plugin:jest/recommended" ]
 }
 

@@ -9,4 +9,5 @@ app.use(express.json());
 
 app.use('/api', router);
 
+// eslint-disable-next-line no-console
 app.listen(port, () => console.log(`Port ${port} is up and running`));
