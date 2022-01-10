@@ -4,7 +4,7 @@ const Word = require('../lib/Words');
 function find(req, res) {
   const {
     country, query, checks,
-  } = req.body;
+  } = req.params;
 
   Word.getWords(query, new GetGoogle(query).getData)
     .then((data) => res.status(200).json(data))

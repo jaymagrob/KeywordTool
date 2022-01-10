@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Keyword Tool</title>
+</head>
+<body>
+  <header>
+    <h1>SEO Keyword Tool</h1>
+    <nav>
+      <!--!HOLD FOR LATER-->
+    </nav>
+  </header>
+  <main>
+    <section>
+      <form>
+        <label for="keyword">Add a keyword</label>
+        <input id="keyword" name="keyword" required minlength="1" maxlength="20">
+        <button>Submit</button>
+      </form>
+    </section>
+    <section id="results">
+
+    </section>
+</main>
+</body>
+
+<script>
+  const form = document.querySelector('form');
+
+  function processResults(results) {
+    const keys = Object.keys(results);
+    
+    resultId = document.getElementById('results')
+
+    keys.forEach(i => {
+      const div = document.createElement("div");
+      const para = document.createElement("h2");
+      para.textContent = i;
+      div.appendChild(para)
+      resultId.appendChild(div)
+
+      results[i].forEach(i2 => {
+        const key = document.createElement("h3");
+        key.textContent = i2.key || 'common';
+        div.appendChild(key)
+        console.log('here', results[i])
+        const data = i2.data;
+        const ul = document.createElement("ul");
+        data.forEach(i3 => {
+        const li = document.createElement('li')
+        li.textContent = i3
+        ul.appendChild(li)
+      });
+      div.appendChild(ul);
+      })
+    })
+    
+    
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const value = document.querySelector('input').value;
+
+    fetch('/api/search/' + value + '/', {
+      headers: [
+    ["Content-Type", "application/json"],
+    ["Content-Type", "text/plain"]
+  ],
+    })
+      .then(i => i.json())
+      .then(processResults)
+      .catch(i => console.log('here err', i));
+  })
+
+</script>
+</html>
