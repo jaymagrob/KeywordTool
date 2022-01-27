@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/b455a7ad-f8b1-46ee-9d27-4bb367198e36/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/mk-seo-tool-v1",
+  "appService.deploySubpath": "."
+}
