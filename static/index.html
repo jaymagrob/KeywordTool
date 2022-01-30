@@ -34,13 +34,16 @@
         </form>
       </div>
     </section>
+    <section id="loading" class="hide">
+      <h2><div class="loader"></div>Loading<div class="loader"></div></h2>
+    </section>
     <section id="results">
 
     </section>
 
     </main>
     <footer>
-      This is the footer
+      <span>A Magnus Klein Limited product. © 2022</span>
     </footer>
 </body>
 
@@ -54,6 +57,7 @@
 
     keys.forEach(i => {
       const div = document.createElement("div");
+      div.className = 'group'
       const para = document.createElement("h2");
       para.textContent = i;
       div.appendChild(para)
@@ -80,6 +84,8 @@
 
   form.addEventListener('submit', (e) => {
     e.preventDefault()
+    const loading = document.querySelector('#loading');
+    loading.classList.remove('hide')
     const value = document.querySelector('input').value;
 
     fetch('/api/search/' + value + '/', {
@@ -88,9 +94,22 @@
     ["Content-Type", "text/plain"]
   ],
     })
+    .then(i => {
+      if(i.ok) {
+        return i
+      } else {
+        throw('There are been an error retreiving your data')
+      }
+    })
       .then(i => i.json())
       .then(processResults)
-      .catch(i => console.log('here err', i));
+      .catch(i => {
+        const resultId = document.getElementById('results')
+        resultId.innerHTML = `<p>${i}</p>`
+      })
+      .finally(() => {
+        loading.classList.add('hide')
+      })
   })
 
 </script>
