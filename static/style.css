@@ -9,6 +9,12 @@ footer{
   text-align: right;
 }
 
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 * {
 box-sizing: border-box;
 }
@@ -36,12 +42,32 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #hero {
+  flex-grow: 1;
   margin: 0 auto;
   display: flex;
-  flex-grow: 1;
-  flex-basis: 0;
+  flex-direction: column;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
+  text-align: center;
+  height: calc(100vh - 100px);
+}
+
+form {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.1);
+  font-size: 1.5em;
+}
+
+input[type="submit"] {
+  background: white;
+  color: black;
+  border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+  color: #ddd;
 }
 
 h2 {
@@ -64,20 +90,96 @@ section:nth-child(n+2) {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
-.loader {
-  display: inline-block;
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
+#loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  background-image: linear-gradient(151deg,#4c39f3,#07e3a1);
+  background-attachment: fixed;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes spin {
+.loader::after, .loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    padding: 0px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #000;
+    animation: spinner .6s linear infinite;
+}
+
+.group {
+  padding: 30px;
+}
+
+  .group > h2:after {
+    content: '';
+    background: black;
+    width: 100%;
+    height: 2px;
+    display: block;
+}
+
+.card {
+  margin: 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background: #fefefe;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  color: #121212;
+  width: 30%;
+  padding: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden
+}
+.card > h3 {
+  line-height: 2;
+  text-decoration: underline;
+}
+.card > ul {
+  list-style-type: none; /* Remove bullets */
+}
+
+.card > li {
+  width: 200px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden
+}
+
+.card-group { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.loader::after {
+  margin-left: 10px;
+}
+
+.loader::before {
+  margin-left: -30px;
+}
+
+@keyframes spinner {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
