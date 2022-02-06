@@ -1,4 +1,5 @@
 {
+  "root" :true,
   "compilerOptions": {
     "outDir": "./built",
     "allowJs": true,
