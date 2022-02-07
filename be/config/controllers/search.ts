@@ -1,5 +1,5 @@
 import GetGoogle from "../../lib/Google";
-import * as Word from "../../lib/Words";
+import Word from "../../lib/Words";
 
 function find(req, res) {
   const { country, query, checks } = req.params;
