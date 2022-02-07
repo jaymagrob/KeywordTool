@@ -1,4 +1,26 @@
 {
-  "extends": [ "airbnb", "eslint:recommended", "plugin:jest/recommended" ]
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended",
+    "plugin:import/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "rules": {
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  }
 }
-

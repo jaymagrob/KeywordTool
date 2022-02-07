@@ -1,10 +1,22 @@
-const axios = require('axios');
+import axios from "axios";
 
-class GetBase {
-  constructor(keyword, country = 'us') {
+export default class GetBase {
+  url: (query?: string) => string;
+
+  country: string;
+
+  keyword: string;
+
+  headers: object;
+
+  formatter: (data: object) => object | Error;
+
+  getData: (query: string) => object | Error;
+
+  constructor(keyword, country = "us") {
     this.keyword = keyword;
     this.country = country;
-    this.url = () => ({});
+    this.url = () => "";
     this.headers = {};
     this.formatter = (i) => i;
     this.getData = async (query) => {
@@ -21,5 +33,3 @@ class GetBase {
     };
   }
 }
-
-module.exports = GetBase;
