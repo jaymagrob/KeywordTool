@@ -11,7 +11,7 @@
     "start:dev": "npm run dev",
     "start": "npm run prod",
     "build": "tsc",
-    "dev": "ts-node-dev --respawn ./be/index.js",
+    "dev": "ts-node-dev --respawn ./be/index.ts",
     "prod": "tsc && node ./built/src/app.js",
     "debug": "tsc && node --inspect ./built/src/app.js"
   },
