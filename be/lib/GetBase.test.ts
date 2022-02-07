@@ -10,8 +10,8 @@ describe("GetBase", () => {
     });
   });
   describe("url", () => {
-    it("should return {}", () => {
-      expect(instance.url()).toEqual({});
+    it("should return ''", () => {
+      expect(instance.url()).toEqual("");
     });
   });
   describe("headers", () => {
