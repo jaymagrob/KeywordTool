@@ -4,16 +4,27 @@ import Google from "./Google";
 describe("Google", () => {
   const keyword = "keyword";
   const country = "country";
-  const instance = new Google(keyword, country);
+  const language = "language";
+  const instance = new Google(keyword, country, language);
   describe("keyword", () => {
     it('should return "keyword"', () => {
       expect(instance.keyword).toBe(keyword);
     });
   });
+  describe("country", () => {
+    it('should return "country"', () => {
+      expect(instance.country).toBe(country);
+    });
+  });
+  describe("language", () => {
+    it('should return "language"', () => {
+      expect(instance.language).toBe(language);
+    });
+  });
   describe("url", () => {
     it("should return string", () => {
       expect(instance.url("QUERY")).toBe(
-        "http://suggestqueries.google.com/complete/search?output=firefox&gl=country&q=QUERY"
+        "http://suggestqueries.google.com/complete/search?output=firefox&hl=language&gl=country&q=QUERY"
       );
     });
   });
