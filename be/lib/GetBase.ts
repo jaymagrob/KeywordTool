@@ -7,15 +7,18 @@ export default class GetBase {
 
   keyword: string;
 
+  language: string;
+
   headers: object;
 
   formatter: (data: object) => object | Error;
 
   getData: (query: string) => object | Error;
 
-  constructor(keyword, country = "us") {
+  constructor(keyword, country = "us", language = "en") {
     this.keyword = keyword;
     this.country = country;
+    this.language = language;
     this.url = () => "";
     this.headers = {};
     this.formatter = (i) => i;
