@@ -234,6 +234,12 @@
             <option value="zm">🇿🇲 Zambia</option>
             <option value="zw">🇿🇼 Zimbabwe</option></select>
           </select>
+          <select id="language" name="language"><option selected="selected" value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 French</option>
+            <option value="de">🇩🇪 German</option>
+            <option value="es">🇪🇸 Spain</option>
+            <option value="it">🇮🇹 Italy</option>
+          </select>
           <input type="submit">
         </form>
       </div>
@@ -300,8 +306,9 @@
     loading.classList.remove('hide')
     const value = document.querySelector('input').value;
     const country = document.getElementById('country').value
+    const language = document.getElementById('language').value
 
-    fetch('/api/search/' + value + '/' + country + '/', {
+    fetch('/api/search/' + value + '/' + country + '/' + language + "/", {
       headers: [
     ["Content-Type", "application/json"],
     ["Content-Type", "text/plain"]
